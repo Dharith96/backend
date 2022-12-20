@@ -8,3 +8,9 @@ def sinin(request):
 
 def home(request):
     return render(request=request, template_name='templates/home.html')
+
+def contactus(request):
+    return render(request=request, template_name='templates/contactus.html')
+
+def lasvegas(request):
+    return render(request=request, template_name='templates/lasvegas.html')
