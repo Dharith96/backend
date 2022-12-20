@@ -14,3 +14,6 @@ def contactus(request):
 
 def lasvegas(request):
     return render(request=request, template_name='templates/lasvegas.html')
+
+def signup(request):
+    return render(request=request, template_name='templates/signup.html')
