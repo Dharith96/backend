@@ -1,5 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, DeleteView, DetailView, ListView
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
+from .forms import signupform
+
+
 
 # Create your views here.
 
@@ -15,5 +24,14 @@ def contactus(request):
 def lasvegas(request):
     return render(request=request, template_name='templates/lasvegas.html')
 
-def signup(request):
-    return render(request=request, template_name='templates/signup.html')
+def signup(response):
+    if response.method == "POST":
+        form = signupform(response.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("/home")
+    else:
+        form = signupform()
+
+    return render(response, 'templates/signup.html', {"form": form})
+    
