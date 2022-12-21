@@ -13,19 +13,22 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
+        migrations.CreateModel
+        (
             name='Location',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('city', models.CharField(max_length=250)),
             ],
         ),
-        migrations.CreateModel(
+        migrations.CreateModel
+        (
             name='Hotels',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('hotel_name', models.CharField(max_length=500)),
                 ('Location', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='home.location')),
+            ],
             name='Signup',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
