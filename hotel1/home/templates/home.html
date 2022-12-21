@@ -29,15 +29,15 @@
 	</a>
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
-        <a class="nav-link active" href=""><strong>Stay.com</strong></a>
+        <a class="nav-link active" href="{% url 'home' %}"><strong>Stay.com</strong></a>
       </li>
 	  </ul>
 	  <ul class="d-flex navbar-nav justify-content-end">
       <li class="nav-item">
-        <a class="nav-link" href="../signin"><strong>Sign in</strong></a>
+        <a class="nav-link" href="{% url 'sinin' %}"><strong>Sign in</strong></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../contactus"><strong>Contact us</strong></a>
+        <a class="nav-link" href="{% url 'contactus' %}"><strong>Contact us</strong></a>
       </li>
     </ul>
   </div>
@@ -117,7 +117,7 @@
       </div>
 
       <div class="carousel-item" data-bs-interval="5000">
-        <a href="../Hawaii.html">
+        <a href="">
         <button>
             {% load static %}<img src={% static "home/Hawaii.jpg"%} class="d-block" alt="Hawaii" width="600" height="315">
         </button></a>
@@ -128,7 +128,7 @@
       </div>
 
       <div class="carousel-item" data-bs-interval="5000">
-        <a href="../lasvegas">
+        <a href="{% url 'lasvegas' %}">
         <button>
             {% load static %}<img src={% static "home/Las_Vegas.jpg" %} class="d-block" alt="Las Vegas" width="600" height="315">
         </button></a>
@@ -139,7 +139,7 @@
       </div>
 
       <div class="carousel-item" data-bs-interval="5000">
-        <a href="../LosAngeles.html">
+        <a href="">
         <button>
         {% load static %}<img src={% static "home/Los_Angeles.jpg" %} class="d-block" alt="Los Angeles" width="600" height="315">
         </button></a>
@@ -150,7 +150,7 @@
       </div>
 
       <div class="carousel-item" data-bs-interval="5000">
-        <a href="../Chicago.html">
+        <a href="">
         <button>
               {% load static %}<img src={% static "home/Chicago.jpg" %} class="d-block" alt="Chicago" width="600" height="315">
         </button></a>

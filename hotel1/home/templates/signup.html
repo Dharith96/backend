@@ -23,15 +23,15 @@
           </a>
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="../home"><strong>Stay.com</strong></a>
+              <a class="nav-link" href="{% url 'home' %}"><strong>Stay.com</strong></a>
             </li>
             </ul>
             <ul class="d-flex navbar-nav justify-content-end">
             <li class="nav-item">
-              <a class="nav-link active" href="../signin"><strong>Sign in</strong></a>
+              <a class="nav-link active" href="{% url 'sinin' %}"><strong>Sign in</strong></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../contactus"><strong>Contact us</strong></a>
+              <a class="nav-link" href="{% url 'contactus' %}"><strong>Contact us</strong></a>
             </li>
           </ul>
         </div>
@@ -45,31 +45,16 @@
                     <div class="card">
                       <div class="card body bg-cream">
                         <center><div style="font-family:'Brush Script MT', cursive ; font-size: 20px">Please fill all the blanks</div></center>
-                        <form action="" class="row g-3 mx-3">
-                          <div class="col-md-6">
-                            <label for="First Name" class="form-label">First Name:</label>
-                            <input type="First Name" name="First Name" class="form-control" id="First Name">
-                          </div>
-                          <div class="col-md-6">
-                            <label for="Last Name" class="form-label">Last Name:</label>
-                            <input type="text" name="Last Name" class="form-control" id="Last Name">
-                          </div>
-                          <div class="col-md-12">
-                            <label for="email" class="form-label">Email:</label>
-                            <input type="email" name="email" class="form-control" id="email">
-                          </div>
-                          <div class="col-md-12">
-                            <label for="password" class="form-label">Pasword:</label>
-                            <input type="text" name="password" class="form-control" id="password">
-                          </div>
-                          <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                          </div>
+                        {% load crispy_forms_tags %}
+                        {% block content %}
+                        <form method="POST" action="" class=" form_group row g-3 mx-3">
+                          {% csrf_token %}
+                          {{form|crispy}}
                           <div calss="col-md-12">
                           <button type="submit" class="btn btn-outline-warning"><i class="fa-sharp fa-solid fa-paper-plane"></i></button>
                           </div>
                         </form>
+                        {% endblock %}
                       </div>
                     </div>
                   </div>
