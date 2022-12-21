@@ -12,6 +12,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import signupform
 
 
+
 # Create your views here.
 
 def sinin(request):
@@ -39,3 +40,4 @@ def signup(response):
 
 def detail(request, location_id):
     return HttpResponse("<h2> You're looking at the Location id :  %s. </h2>" % location_id)
+    
