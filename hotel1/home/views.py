@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Location, Hotels
+import datetime
+
 
 # Create your views here.
 

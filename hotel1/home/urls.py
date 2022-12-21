@@ -8,5 +8,5 @@ urlpatterns = [
     path('lasvegas/', view=views.lasvegas, name='lasvegas'),
     path('signup/', view=views.signup, name='signup'),  
         # /home/4/
-    path('<int:location_id>/', view=views.detail, name='detail'),
+    path('<int:location_id>/', views.detail, name='detail'),
 ]
