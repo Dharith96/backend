@@ -27,15 +27,15 @@
       </a>
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="../home"><strong>Stay.com</strong></a>
+          <a class="nav-link" href="{% url 'home' %}"><strong>Stay.com</strong></a>
         </li>
         </ul>
         <ul class="d-flex navbar-nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link" href="../signin"><strong>Sign in</strong></a>
+          <a class="nav-link" href="{% url 'sinin' %}"><strong>Sign in</strong></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href=""><strong>Contact us</strong></a>
+          <a class="nav-link active" href="{% url 'contactus' %}"><strong>Contact us</strong></a>
         </li>
       </ul>
     </div>
