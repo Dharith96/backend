@@ -17,3 +17,13 @@
     height: 25vh;
     object-fit: cover;
 }
+
+.bg-cream{
+    --bs-bg-opacity: 0.7;
+    background-color: #fffdd1;
+    
+  }
+  .btn{
+    color: #fdcf76 !important;
+    border-color: #fdcf76 !important;
+  }
