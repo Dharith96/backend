@@ -17,3 +17,6 @@ def lasvegas(request):
 
 def signup(request):
     return render(request=request, template_name='templates/signup.html')
+
+def detail(request, location_id):
+    return HttpResponse("<h2> You're looking at the Location id :  %s. </h2>" % location_id)

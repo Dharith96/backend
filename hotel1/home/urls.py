@@ -7,4 +7,6 @@ urlpatterns = [
     path('contactus/', view=views.contactus, name='contactus'),
     path('lasvegas/', view=views.lasvegas, name='lasvegas'),
     path('signup/', view=views.signup, name='signup'),  
+        # /home/4/
+    path('<int:location_id>/', view=views.detail, name='detail'),
 ]
