@@ -106,24 +106,24 @@
     <div class="carousel-inner">
 
       <div class="carousel-item active" data-bs-interval="5000">
-        <a href="../NewYork.html">
+        <a href="{% url 'newyork' %}">
         <button>
             {% load static %}<img src={% static "home/NY.jpg" %} class="d-block " alt="New York" width="600" height="315">
         </button></a>
         <div class="carousel-caption d-none d-md-block">
           <h5>New York</h5>
-          <p>Wyndham , Row NYC</p>
+          <p>New Yorker , Row NYC</p>
         </div>
       </div>
 
       <div class="carousel-item" data-bs-interval="5000">
-        <a href="">
+        <a href="{% url 'hawaii' %}">
         <button>
             {% load static %}<img src={% static "home/Hawaii.jpg"%} class="d-block" alt="Hawaii" width="600" height="315">
         </button></a>
         <div class="carousel-caption d-none d-md-block">
           <h5>Hawaii</h5>
-          <p>Park Shore Waikiki , Western Princeville Ocean Resort Villa</p>
+          <p>Park Shore Waikiki , Westin Princeville Ocean Resort Villa</p>
         </div>
       </div>
 
@@ -139,7 +139,7 @@
       </div>
 
       <div class="carousel-item" data-bs-interval="5000">
-        <a href="">
+        <a href="{% url 'losangeles' %}">
         <button>
         {% load static %}<img src={% static "home/Los_Angeles.jpg" %} class="d-block" alt="Los Angeles" width="600" height="315">
         </button></a>
@@ -150,7 +150,7 @@
       </div>
 
       <div class="carousel-item" data-bs-interval="5000">
-        <a href="">
+        <a href="{% url 'chicago' %}">
         <button>
               {% load static %}<img src={% static "home/Chicago.jpg" %} class="d-block" alt="Chicago" width="600" height="315">
         </button></a>
