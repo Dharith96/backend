@@ -27,6 +27,18 @@ def contactus(request):
 def lasvegas(request):
     return render(request=request, template_name='templates/lasvegas.html')
 
+def hawaii(request):
+    return render(request=request, template_name='templates/hawaii.html')
+
+def newyork(request):
+    return render(request=request, template_name='templates/newyork.html')
+
+def losangeles(request):
+    return render(request=request, template_name='templates/losangeles.html')
+
+def chicago(request):
+    return render(request=request, template_name='templates/chicago.html')
+
 def signup(response):
     if response.method == "POST":
         form = signupform(response.POST)
