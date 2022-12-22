@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .models import Location, Hotels
+from django.http import HttpResponse, HttpResponseRedirect
+from .models import City, Hotel, Room
 import datetime
-from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView
 from django.contrib.auth import authenticate, login
