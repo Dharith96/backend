@@ -9,8 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from .forms import signupform
-
-
+from django.contrib import messages
 
 # Create your views here.
 
@@ -48,6 +47,21 @@ def signup(response):
         form = signupform()
 
     return render(response, 'templates/signup.html', {"form": form})
+
+def signin(request):
+    if request.method == "POST":
+        username =request.POST['username']
+        password= request.POST['password']
+        user= authenticate(username=username, password=password)
+        if user is not None:
+            login(request,user)
+            messages.success(request, "Successful Sign in")
+            print("Login Successful")
+            return redirect("/home")
+        else:
+            messages.warning(request, "Incorrect username or password")
+            return redirect("/signin")
+    return HttpResponse(render(request, "signin.html"))
 
 def detail(request, location_id):
     return HttpResponse("<h2> You're looking at the Location id :  %s. </h2>" % location_id)
