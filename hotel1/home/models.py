@@ -23,7 +23,7 @@ class Room(models.Model):
     ("2", "Two Queen"),
     ("3","One King"),    
     ) 
-    hotel=models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    hotel=models.ForeignKey(City, on_delete=models.CASCADE)
     roomname=models.CharField(max_length=50,choices = ROOM_TYPE)
     def __str__(self):
         return self.roomname
