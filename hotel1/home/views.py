@@ -1,6 +1,7 @@
+import json
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import City, Hotel, Room
+from .models import City, Hotel, Reservation, Room
 import datetime
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView
@@ -65,4 +66,49 @@ def signin(request):
 
 def detail(request, location_id):
     return HttpResponse("<h2> You're looking at the Location id :  %s. </h2>" % location_id)
+
+def hotel_list(request):
+    city = request.GET.get("citylist")
+    from_date = request.GET.get("check-in-date")
+    to_date = request.GET.get("check-out-date")
+    check_in_datetime = datetime.datetime.strptime(from_date,'%Y-%m-%d')
+    check_out_datetime = datetime.datetime.strptime(to_date,'%Y-%m-%d')
+    delta = check_out_datetime - check_in_datetime
+    days = delta.days
+    guest = int(request.GET.get("guestnumber"))
+    city_DB = City.objects.get(name=city)
+    hotels = Hotel.objects.prefetch_related("room_set").filter(city=city_DB)
+
+    data = {
+        'city': city,
+        'check_in_date': check_in_datetime,
+        'check_out_date': check_out_datetime,
+        'from_date': from_date,
+        'to_date': to_date,
+        'guest': guest,
+        'days': days,
+        "hotels": [{"name": hotel.name, 'rooms': 
+                        [{"id": room.id, "name": room.name, 'type':room.get_type_display(), 'price' : room.price, 'total_price': room.price * days * guest} for room in hotel.room_set.all()]} for hotel in hotels],
+    }
+    return render(request=request, template_name='templates/hotel-list.html', context={"data": data})
+
+def reserve(request):
+    if request.user.is_authenticated:
+        roomId = int(request.GET.get("roomId"))
+        from_date = request.GET.get("from-date")
+        to_date = request.GET.get("to-date")
+        guest = int(request.GET.get("guest"))
+        check_in_datetime = datetime.datetime.strptime(from_date,'%Y-%m-%d')
+        check_out_datetime = datetime.datetime.strptime(to_date,'%Y-%m-%d')
+        Reservation.objects.create(
+            room_id=roomId, 
+            check_in = check_in_datetime,
+            check_out = check_out_datetime,
+            guest=guest,
+            user = request.user)
+        return HttpResponse("<h2>OK</h2>")
+    else:
+        return HttpResponse("<h2>Please login</h2>")
+
+
     
