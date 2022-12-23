@@ -11,7 +11,9 @@ urlpatterns = [
     path('losangeles/', view=views.losangeles, name='losangeles'),
     path('chicago/', view=views.chicago, name='chicago'),
     path('signup/', view=views.signup, name='signup'),  
-    path('signup/', view=views.signup, name='signup'),  
+    path('signup/', view=views.signup, name='signup'),
+    path('reserve/', view=views.reserve, name='reserve'),
+    path('hotel-list/', view=views.hotel_list, name='hotel-list'),
         # /home/4/
     path('<int:location_id>/', views.detail, name='detail'),
 ]
